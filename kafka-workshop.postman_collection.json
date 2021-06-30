@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "36f45209-968c-4a27-a6ad-2e7d9e42e3b4",
+		"name": "kafka-workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "pay Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/payment/payOrder",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"payment",
+						"payOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Invoice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9001/invoices/search/findByOrderId?orderId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"invoices",
+						"search",
+						"findByOrderId"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

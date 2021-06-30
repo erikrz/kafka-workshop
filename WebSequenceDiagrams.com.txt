@@ -1,0 +1,21 @@
+title Kafka Sample
+actor User
+note right of User:
+    System user
+end note
+User->+payment-service: Pays an order
+note right of payment-service:
+    Processes order payment
+end note
+payment-service->events topic: publishes Payment event
+payment-service->-User: OK response
+note right of events topic:
+    Event Stream
+end note
+events topic->+invoice-service: listens to Payment event
+note right of invoice-service:
+    Processes Payment event
+    Creates invoice
+    May publish more events
+end note
+
