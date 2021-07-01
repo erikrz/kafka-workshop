@@ -43,7 +43,7 @@ In the `/backend` folder, there are 3 java maven projects:
 Open `kafka-models` and run `mvn clean install`. This should create the shared, required jar that contains the `Payment` Kafka model. 
 In this sample, we are serializing our data in JSON format so that it can be readable in Kafka UI. Common options in the industry for production are `Apache Avro` and `Google Protobuf`. 
 
-Now we can run both of our services. In `payment-service`, there is a POST we can use at `localhost:9000/payment/payOrder` with a payload like this:
+Now we can run both of our services. In `payment-service`, there is a POST we can use at `localhost:9000/payment/pay-order` with a payload like this:
 
 ```json
 {

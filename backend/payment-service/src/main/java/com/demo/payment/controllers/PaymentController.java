@@ -37,7 +37,7 @@ public class PaymentController {
      *
      * @param payOrder the request with Payment data.
      */
-    @PostMapping(value = "/payOrder")
+    @PostMapping(value = "/pay-order")
     @ResponseStatus(HttpStatus.CREATED)
     public PaymentAttempt payOrder(@RequestBody PayOrder payOrder) {
         long paymentId = random.nextLong();

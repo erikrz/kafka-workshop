@@ -20,7 +20,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/payment/payOrder",
+					"raw": "localhost:9000/payment/pay-order",
 					"host": [
 						"localhost"
 					],
