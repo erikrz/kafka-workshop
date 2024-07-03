@@ -19,6 +19,8 @@ import com.demo.invoice.entity.Invoice;
 @RepositoryRestResource(collectionResourceRel = "invoices", path = "invoices")
 public interface InvoiceRepository extends PagingAndSortingRepository<Invoice, Long> {
 
+    Invoice save(Invoice invoice);
+
     /**
      * List of invoices with a given orderId.
      * @param orderId the orderId.
