@@ -3,7 +3,6 @@ package com.demo.payment.controllers;
 import java.math.BigDecimal;
 import java.util.Random;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +24,7 @@ public class PaymentController {
     private final Producer producer;
     private final Random random = new Random();
 
-    @Autowired PaymentController(Producer producer) {
+    PaymentController(Producer producer) {
         this.producer = producer;
     }
 

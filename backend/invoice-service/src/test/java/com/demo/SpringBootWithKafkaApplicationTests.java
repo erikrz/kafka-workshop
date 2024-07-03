@@ -10,10 +10,10 @@ import com.demo.invoice.InvoiceApplication;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = InvoiceApplication.class)
-public class SpringBootWithKafkaApplicationTests {
+class SpringBootWithKafkaApplicationTests {
 
     @Test
-    public void contextLoads() {
+    void contextLoads() {
     }
 
 }
