@@ -1,0 +1,55 @@
+version: '3'
+services:
+  btors-mongo:
+    image: mongo:7.0.11
+    hostname: btors-mongo
+    container_name: btors-mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongoadmin
+      #MONGODB_AUTH_DATABASE: admin  
+    volumes:
+      - mongodb:/data/db
+
+  mongo-express:
+    image: mongo-express:1.0.2-20
+    hostname: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment: 
+      ME_CONFIG_MONGODB_SERVER: btors-mongo
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: changeme
+      #ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_ADMINUSERNAME: mongoadmin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: mongoadmin
+      ME_CONFIG_MONGODB_URL: mongo://mongoadmin:mongoadmin@btors-mongo:27017/ 
+    depends_on:
+      - btors-mongo
+volumes:
+  mongodb:
+
+###########################################################################
+###########################################################################
+##
+##  Docker Compose File: Networks
+##  Function: Declares the network shared with all services. 
+##  mongo-network is declared and used withint this file.
+##  Useful when you want other services running in mongo to be able to 
+##  communicate with the services declared in this file.
+##  Those other services should declare something like this:
+##  
+##  networks:
+##    my-service-network:
+##    mongo-network:
+##      external: true
+##  
+###########################################################################
+###########################################################################
+networks:
+  mongo-network:

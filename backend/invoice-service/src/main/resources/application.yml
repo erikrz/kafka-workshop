@@ -10,3 +10,6 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: com.demo.models
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/invoicesDb
